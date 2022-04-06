@@ -5,13 +5,13 @@
 
 
 void Switch_Configure(Switch_Pin sw){
-    GPIO_PORTF_LOCK_R = 0x4C4F434B; /* unlock commit reg. */
-    GPIO_PORTF_CR_R = 1; /* enable commit reg. to control PUR reg. */
-    CLEAR_BIT(GPIO_PORTF_DIR_R, sw);
-    CLEAR_BIT(GPIO_PORTF_AFSEL_R, sw);
-	SET_BIT(GPIO_PORTF_CR_R, sw);
-    SET_BIT(GPIO_PORTF_PUR_R, sw);
-    SET_BIT(GPIO_PORTF_DEN_R, sw);
+	SYSCTL_RCGCGPIO_R |= (1 << 5); /* enable clock for port F */
+	CLEAR_BIT(GPIO_PORTF_DIR_R, sw);
+	CLEAR_BIT(GPIO_PORTF_AFSEL_R, sw);
+	GPIO_PORTF_LOCK_R = 0x4C4F434B; /* unlock commit reg. */
+	SET_BIT(GPIO_PORTF_CR_R, sw); /* enable commit reg. to control PUR reg. */
+	SET_BIT(GPIO_PORTF_PUR_R, sw);
+	SET_BIT(GPIO_PORTF_DEN_R, sw);
 }
 
 uint8_t Switch_isPressed(Switch_Pin sw){
