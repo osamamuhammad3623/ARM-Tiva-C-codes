@@ -26,6 +26,7 @@ typedef struct{
 	Timer_mode mode;
     Timer_Direction dir;
 	uint16_t compareValue;
+	void (* callBack) (void); /* pointer to call-back function */
 }Timer_configuration;
 
 
@@ -43,12 +44,5 @@ Description: A function to intialize the timer, supports One-shot and Periodic m
 
 */
 void Timer_init(const Timer_configuration* timer_config);
-
-/*
-Description: A function to check whether the timer is timed-out or not
-            - return 1 if it's timed-out, 0 otherwise
-            - if it's timed-out, clear time-out flag
-*/
-uint8_t Timer_is_time_out(Timer_ID timer_id);
 
 #endif /* BASIC_TIMER_H_ */
