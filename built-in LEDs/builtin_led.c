@@ -14,7 +14,6 @@ void LED_Configure(LED_Color color)
 
 void LED_Enable(LED_Color color)
 {
-	GPIO_PORTF_DATA_R &= (~(0xE)); /* turn off all LEDs */
   GPIO_PORTF_DATA_R |= (1<<color);
 }
 
