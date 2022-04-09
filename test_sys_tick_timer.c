@@ -3,11 +3,8 @@
 #include "sys_tick.h"
 #include "builtin_led.h"
 
-uint16_t i =1;
 void turnOnLED(void){
-	i++;
-	if (i%2){ LED_Enable(BLUE);}
-	else {LED_Disable();}
+	LED_Toggle();
 }
 
 int main(void){
