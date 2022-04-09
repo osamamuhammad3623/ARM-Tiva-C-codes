@@ -313,3 +313,66 @@ void GPIO_init(const GPIO_Configuration * config){
 
 }
 
+void GPIO_setPinDirection(GPIO_Port port, GPIO_Pin pin, GPIO_Direction dir){
+	switch(port){
+		case PORTA:
+			if(dir == Output)
+			{
+				SET_BIT(GPIO_PORTA_DIR_R,pin);
+			}
+			else{
+				CLEAR_BIT(GPIO_PORTA_DIR_R,pin);
+			}
+			break;
+			
+		case PORTB:
+			if(dir == Output)
+			{
+				SET_BIT(GPIO_PORTB_DIR_R,pin);
+			}
+			else{
+				CLEAR_BIT(GPIO_PORTB_DIR_R,pin);
+			}
+			break;
+			
+		case PORTC:
+			if(dir == Output)
+			{
+				SET_BIT(GPIO_PORTC_DIR_R,pin);
+			}
+			else{
+				CLEAR_BIT(GPIO_PORTC_DIR_R,pin);
+			}
+			break;
+			
+		case PORTD:
+			if(dir == Output)
+			{
+				SET_BIT(GPIO_PORTD_DIR_R,pin);
+			}
+			else{
+				CLEAR_BIT(GPIO_PORTD_DIR_R,pin);
+			}
+			break;
+			
+		case PORTE:
+			if(dir == Output)
+			{
+				SET_BIT(GPIO_PORTE_DIR_R,pin);
+			}
+			else{
+				CLEAR_BIT(GPIO_PORTE_DIR_R,pin);
+			}
+			break;
+			
+		case PORTF:
+			if(dir == Output)
+			{
+				SET_BIT(GPIO_PORTF_DIR_R,pin);
+			}
+			else{
+				CLEAR_BIT(GPIO_PORTF_DIR_R,pin);
+			}
+			break;
+	}
+}

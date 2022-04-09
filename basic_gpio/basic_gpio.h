@@ -65,4 +65,6 @@ void GPIO_writeData(GPIO_Port port, GPIO_Pin pin, uint8_t data);
 
 uint8_t GPIO_readData(GPIO_Port port, GPIO_Pin pin);
 
+void GPIO_setPinDirection(GPIO_Port port, GPIO_Pin pin, GPIO_Direction dir);
+
 #endif /* BASIC_GPIO_H_ */
