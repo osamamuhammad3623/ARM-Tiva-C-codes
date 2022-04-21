@@ -7,6 +7,7 @@
 int main(void){
 
 	Switch_Configure(SW1);
+	Switch_Configure(SW2);
 	LED_Configure(BLUE);
 	LED_Configure(GREEN);
 	
